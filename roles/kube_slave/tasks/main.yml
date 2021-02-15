@@ -1,0 +1,9 @@
+---
+
+- name: Configure Amazon Linux2
+  include: amazon.yml
+  when: ansible_distribution == "Amazon"
+
+- name: Configure RedHat
+  include: redhat.yml
+  when: ansible_os_family == "RedHat" and ansible_distribution != "Amazon"

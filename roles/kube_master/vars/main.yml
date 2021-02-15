@@ -1,0 +1,5 @@
+---
+# vars file for kube-master
+pod_network_cidr: " {{ pod_network_cidr }} "
+owner: " {{ owner }} "
+group: " {{ group }} "

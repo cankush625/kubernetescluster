@@ -1,0 +1,27 @@
+galaxy_info:
+  role_name: kube_slave
+  author: Ankush Chavan
+  description: Configure the Kubernetes slave node
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: Amazon Linux 2
+      versions:
+        - all
+    - name: RedHat Enterprise Linux
+      versions:
+        - 8
+  
+  galaxy_tags:
+    - kubernetes
+    - Kubernetes
+    - k8s
+    - cluster
+    - slavenode
+    - ec2
+    - rhel8
+
+dependencies: []
+  

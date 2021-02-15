@@ -1,0 +1,77 @@
+- name: Configure yum for docker
+  yum_repository:
+    name: "docker_repo"
+    description: Yum repo for docker
+    baseurl: https://download.docker.com/linux/centos/7/x86_64/stable/
+    gpgcheck: no
+
+- name: Install docker on RedHat
+  package:
+    name: "docker-ce-18.06.3.ce-3.el7.x86_64"
+    state: present
+  register: dockerinstall
+
+- name: Install Python
+  package:
+    name: python3
+    state: present
+
+- name: Install Docker sdk for python
+  pip:
+    name: docker
+
+- name: Create /etc/docker directory
+  file:
+    path: /etc/docker
+    state: directory
+
+- name: Update docker driver to systemd
+  copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+
+- name: Start and Enable docker
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Configure yum for kubernetes
+  yum_repository:
+    name: kubernetes
+    description: Yum repo for Kubernetes
+    baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-$basearch
+    gpgcheck: no
+  register: kuberepo
+
+- name: Install kubelet, kubeadm and kubectl packages
+  package:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - kubelet
+      - kubeadm
+      - kubectl
+
+- name: Enable kubelet
+  service:
+    name: kubelet
+    state: started
+    enabled: yes
+
+- name: Install iproute-tc package
+  package:
+    name: iproute-tc
+    state: present
+
+- name: Copy k8s.conf file for bridging
+  copy:
+    src: k8s.conf
+    dest: /etc/sysctl.d/k8s.conf
+
+- name: Enabling bridging for kernel in the slave node
+  command: sysctl --system
+
+- name: Join the slave and master nodes
+  command: "{{ kube_join_command }}"
