@@ -1,6 +1,9 @@
 # Ansible Collection - cankush625.kubernetescluster
 
-This collection contains the roles for configuring the Kubernetes master and slave nodes. Currently, it supports Amazon Linux 2 and Redhat Enterprise Linux v8.
+This collection contains the roles for configuring the Kubernetes master and slave nodes. Currently, it supports Amazon Linux 2, Redhat Enterprise Linux and Ubuntu.
+
+Roles
+=====
 
 kube_master
 -----------
@@ -12,8 +15,8 @@ kube_slave
 
 This is the role for configuring Kubernetes slave node. You can find more information about it in the roles/kube_slave/README.md file.
 
-Using this collection
----------------------
+Installation and Usage
+======================
 
 Download and install this collection using following command<br>
 
@@ -41,10 +44,25 @@ Example playbook for using kube_slave role from this collection
         - role: kube_slave
           kube_join_command: "kubeadm join <YOUR_KUBE_MASTER_NODE_PRIVATE_IP>:6443 --token <YOUR_TOKEN>     --discovery-token-ca-cert-hash <YOUR_DISCOVERY_TOKEN_CERT_HASH> "
 
+Tested on
+=========
+
+This role is tested on following OS distributions: <br>
+- Amazon Linux 2
+- RedHat Enterprise Linux v8
+- Ubuntu Server 20.04 LTS
+
+Contribution
+============
+
+If you find any bug or want to do improvement in this collection, then find the source code for this collection [here](https://github.com/cankush625/kubernetescluster). Create an issue or open up a pull request and I will consider merging it, if it does what this collection is intended for.
+
 License
--------
+=======
+
 MIT
 
 Author
-------
+======
+
 [Ankush Chavan](https://www.linkedin.com/in/ankushchavan)
