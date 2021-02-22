@@ -7,3 +7,7 @@
 - name: Configure RedHat
   include: redhat.yml
   when: ansible_os_family == "RedHat" and ansible_distribution != "Amazon"
+
+- name: Configure Debian
+  include: debian.yml
+  when: ansible_os_family == "Debian"
