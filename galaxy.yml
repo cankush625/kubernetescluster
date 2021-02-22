@@ -2,7 +2,7 @@ namespace: cankush625
 
 name: kubernetescluster
 
-version: 1.0.0
+version: 1.1.0
 
 readme: README.md
 
@@ -10,7 +10,7 @@ authors:
 - Ankush Chavan <cankush625@gmail.com>
 
 
-description: This collections contains the roles for configuring kubernetes master and slave nodes
+description: This collection contains the roles for configuring kubernetes master and slave nodes
 
 license_file: LICENSE
 
