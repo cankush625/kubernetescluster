@@ -69,7 +69,7 @@
     state: present
 
 - name: Initialize the Kubernetes Master - kubeadm init
-  command: "kubeadm init --pod-network-cidr={{ pod_network_cidr }} --control-plane-endpoint={{ control_plane_endpoint_ip }}:6443 --ignore-preflight-errors=NumCPU  --ignore-preflight-errors=Mem"
+  command: "kubeadm init --pod-network-cidr={{ pod_network_cidr }} --ignore-preflight-errors=NumCPU  --ignore-preflight-errors=Mem"
   ignore_errors: true
 
 - name: Create /.kube directory
