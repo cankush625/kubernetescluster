@@ -1,8 +1,8 @@
 namespace: cankush625
 
-name: kubernetescluster
+name: multicloudkubernetescluster
 
-version: 1.1.0
+version: 1.0.0
 
 readme: README.md
 
@@ -10,7 +10,7 @@ authors:
 - Ankush Chavan <cankush625@gmail.com>
 
 
-description: This collection contains the roles for configuring kubernetes master and slave nodes
+description: This collection contains the roles for configuring multi-cloud kubernetes master and slave nodes
 
 license_file: LICENSE
 
@@ -21,14 +21,15 @@ tags:
 - k8scluster
 - cluster
 - multinode
+- multicloud
 - automation
 
 dependencies: {}
 
-repository: https://github.com/cankush625/kubernetescluster
+repository: https://github.com/cankush625/multicloudkubernetescluster
 
 documentation: http://docs.example.com
 
 homepage: http://example.com
 
-issues: https://github.com/cankush625/kubernetescluster
+issues: https://github.com/cankush625/multicloudkubernetescluster

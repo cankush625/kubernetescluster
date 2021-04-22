@@ -1,5 +1,6 @@
 ---
 # vars file for kube-master
 pod_network_cidr: " {{ pod_network_cidr }} "
+control_plane_endpoint_ip: " {{ control_plane_endpoint_ip }} "
 owner: " {{ owner }} "
 group: " {{ group }} "
